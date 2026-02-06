@@ -1792,3 +1792,235 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+
+/* ========================================================================
+   RESPONSIVENESS FIXES ONLY - NO COLOR OR DESIGN CHANGES
+   ======================================================================== */
+
+/* Mobile avatar size fix */
+@media (max-width: 579px) {
+  .avatar-box {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  
+  .sidebar-info {
+    gap: 15px !important;
+  }
+  
+  .info-content .name {
+    font-size: 18px !important;
+  }
+}
+
+/* Mobile layout fixes */
+@media (max-width: 767px) {
+  .sidebar, article {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  body {
+    overflow-x: hidden !important;
+  }
+  
+  main {
+    margin: 10px 8px !important;
+    margin-bottom: 75px !important;
+  }
+  
+  .mapbox {
+    height: 250px !important;
+  }
+  
+  .input-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Project cards responsive fixes */
+.project-item {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.project-item > div[style*="display: flex"],
+.project-item > div[style*="display:flex"],
+.project-item > li[style*="display: flex"],
+.project-item > li[style*="display:flex"] {
+  flex-wrap: wrap !important;
+}
+
+.project-item div[style*="min-width"],
+.project-item li div[style*="min-width"] {
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+.project-item div[style*="height: 350px"],
+.project-item div[style*="height:350px"],
+.project-item li div[style*="height: 350px"],
+.project-item li div[style*="height:350px"] {
+  height: auto !important;
+  min-height: 200px !important;
+}
+
+@media (max-width: 767px) {
+  .project-item > div[style*="padding: 40px"],
+  .project-item > div[style*="padding:40px"],
+  .project-item > li[style*="padding: 40px"],
+  .project-item > li[style*="padding:40px"] {
+    padding: 15px !important;
+  }
+  
+  .project-item [style*="padding: 25px"],
+  .project-item [style*="padding:25px"] {
+    padding: 15px !important;
+  }
+  
+  .project-item div[style*="grid-template-columns: 1fr 1fr"],
+  .project-item div[style*="grid-template-columns:1fr 1fr"],
+  .project-item li div[style*="grid-template-columns: 1fr 1fr"],
+  .project-item li div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .project-item h3[style*="font-size: 28px"],
+  .project-item h3[style*="font-size:28px"] {
+    font-size: 20px !important;
+  }
+  
+  .project-item h3[style*="font-size: 26px"],
+  .project-item h3[style*="font-size:26px"] {
+    font-size: 18px !important;
+  }
+  
+  .project-item p[style*="font-size: 16px"],
+  .project-item p[style*="font-size:16px"] {
+    font-size: 14px !important;
+  }
+  
+  .project-item div[style*="font-size: 14px"],
+  .project-item div[style*="font-size:14px"] {
+    font-size: 12px !important;
+  }
+  
+  .project-item div[style*="font-size: 13px"],
+  .project-item div[style*="font-size:13px"] {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar-link {
+    font-size: 10px !important;
+    padding: 15px 5px !important;
+  }
+}
+
+/* END OF RESPONSIVENESS FIXES */
+
+/* ========================================================================
+   SIDEBAR TOGGLE FIX FOR MOBILE
+   ======================================================================== */
+
+/* Make sure sidebar info is hidden by default on mobile */
+@media (max-width: 579px) {
+  .sidebar {
+    max-height: 112px !important;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+  
+  .sidebar.active {
+    max-height: 600px !important;
+  }
+  
+  .info_more-btn {
+    display: flex !important;
+  }
+  
+  .info_more-btn span {
+    display: inline !important;
+  }
+  
+  .info_more-btn ion-icon {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.active .info_more-btn ion-icon {
+    transform: rotate(180deg);
+  }
+}
+
+/* Ensure the button is visible on mobile */
+@media (max-width: 767px) {
+  .info_more-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* END OF SIDEBAR TOGGLE FIX */
+
+/* ========================================================================
+   DESKTOP SIDEBAR FIX - Always Show Contact Info
+   ======================================================================== */
+
+/* On desktop/tablet, always show contact info */
+@media (min-width: 580px) {
+  .sidebar {
+    max-height: none !important;
+  }
+  
+  .sidebar-info_more {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .info_more-btn {
+    display: none !important;
+  }
+}
+
+/* On medium screens (580px - 1024px), ensure sidebar is open */
+@media (min-width: 580px) and (max-width: 1024px) {
+  .sidebar {
+    max-height: 180px;
+  }
+  
+  .sidebar.active {
+    max-height: 584px;
+  }
+  
+  .info_more-btn {
+    display: flex !important;
+  }
+  
+  .info_more-btn span {
+    display: block !important;
+  }
+}
+
+/* On large desktop (1250px+), always show everything */
+@media (min-width: 1250px) {
+  .sidebar {
+    max-height: max-content !important;
+  }
+  
+  .sidebar-info_more {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .info_more-btn {
+    display: none !important;
+  }
+}
+
+/* END OF DESKTOP SIDEBAR FIX */
